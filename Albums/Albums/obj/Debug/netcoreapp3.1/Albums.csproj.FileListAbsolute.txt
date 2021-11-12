@@ -1,0 +1,14 @@
+E:\teme\Albums\Albums\bin\Debug\netcoreapp3.1\Albums.exe
+E:\teme\Albums\Albums\bin\Debug\netcoreapp3.1\Albums.deps.json
+E:\teme\Albums\Albums\bin\Debug\netcoreapp3.1\Albums.runtimeconfig.json
+E:\teme\Albums\Albums\bin\Debug\netcoreapp3.1\Albums.runtimeconfig.dev.json
+E:\teme\Albums\Albums\bin\Debug\netcoreapp3.1\Albums.dll
+E:\teme\Albums\Albums\bin\Debug\netcoreapp3.1\Albums.pdb
+E:\teme\Albums\Albums\obj\Debug\netcoreapp3.1\Albums.csproj.AssemblyReference.cache
+E:\teme\Albums\Albums\obj\Debug\netcoreapp3.1\Albums.GeneratedMSBuildEditorConfig.editorconfig
+E:\teme\Albums\Albums\obj\Debug\netcoreapp3.1\Albums.AssemblyInfoInputs.cache
+E:\teme\Albums\Albums\obj\Debug\netcoreapp3.1\Albums.AssemblyInfo.cs
+E:\teme\Albums\Albums\obj\Debug\netcoreapp3.1\Albums.csproj.CoreCompileInputs.cache
+E:\teme\Albums\Albums\obj\Debug\netcoreapp3.1\Albums.dll
+E:\teme\Albums\Albums\obj\Debug\netcoreapp3.1\Albums.pdb
+E:\teme\Albums\Albums\obj\Debug\netcoreapp3.1\Albums.genruntimeconfig.cache
