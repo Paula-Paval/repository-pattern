@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\teme\\Albums\\Albums\\Albums.csproj",
+      "projectUniqueName": "E:\\teme\\repository-pattern\\Albums\\Albums\\Albums.csproj",
       "projectName": "Albums",
-      "projectPath": "E:\\teme\\Albums\\Albums\\Albums.csproj",
+      "projectPath": "E:\\teme\\repository-pattern\\Albums\\Albums\\Albums.csproj",
       "packagesPath": "C:\\Users\\paula.paval\\.nuget\\packages\\",
-      "outputPath": "E:\\teme\\Albums\\Albums\\obj\\",
+      "outputPath": "E:\\teme\\repository-pattern\\Albums\\Albums\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\paula.paval\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Xunit;
 
 namespace Albums.Tests
@@ -231,23 +232,24 @@ namespace Albums.Tests
         [Fact]
         public void UpdateById_GetByIdRetunAnAlbumWithTheSameFields()
         {
-            var id = 60;
-            var genre = "pop";
+            var id = 50;
+            var genre = "latino";
+
+
+            var option = new StringReader(@$"Genre
+{genre}");
+            Console.SetIn(option);
+                       
 
             albumRepository.UpdateById(id);
             albumRepository.Save();
             var result = albumRepository.GetById(id);
 
-            Assert.Equal(id ,result.Id);
+
+            Assert.Equal(id, result.Id);
             Assert.Equal(genre, result.Genre);
-           
+
         }
-
-
-
-
-
-
 
     }
 }

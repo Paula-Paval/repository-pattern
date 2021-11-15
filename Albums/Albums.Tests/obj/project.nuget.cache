@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KhUb8gJdcOpRR7jaunDnIfGiB0pNSk7NVlzdv5skBNm9xsCMztjomhy5rsiMyEJ1zs4YXZa5+FxhSrUMN7eOfQ==",
+  "dgSpecHash": "tdZf1oIq3PT5GLGcybVooYkBM38wH6IUx8RleyIMkWDqTOss0rj3iTiEgZYCo1AEF9k20ITHI4e6Fvn8FAVk/Q==",
   "success": true,
-  "projectFilePath": "E:\\teme\\Albums\\Albums.Tests\\Albums.Tests.csproj",
+  "projectFilePath": "E:\\teme\\repository-pattern\\Albums\\Albums.Tests\\Albums.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\paula.paval\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\paula.paval\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",

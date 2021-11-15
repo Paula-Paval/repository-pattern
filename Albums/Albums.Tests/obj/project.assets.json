@@ -5938,11 +5938,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\teme\\Albums\\Albums.Tests\\Albums.Tests.csproj",
+      "projectUniqueName": "E:\\teme\\repository-pattern\\Albums\\Albums.Tests\\Albums.Tests.csproj",
       "projectName": "Albums.Tests",
-      "projectPath": "E:\\teme\\Albums\\Albums.Tests\\Albums.Tests.csproj",
+      "projectPath": "E:\\teme\\repository-pattern\\Albums\\Albums.Tests\\Albums.Tests.csproj",
       "packagesPath": "C:\\Users\\paula.paval\\.nuget\\packages\\",
-      "outputPath": "E:\\teme\\Albums\\Albums.Tests\\obj\\",
+      "outputPath": "E:\\teme\\repository-pattern\\Albums\\Albums.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\paula.paval\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5959,8 +5959,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "E:\\teme\\Albums\\Albums\\Albums.csproj": {
-              "projectPath": "E:\\teme\\Albums\\Albums\\Albums.csproj"
+            "E:\\teme\\repository-pattern\\Albums\\Albums\\Albums.csproj": {
+              "projectPath": "E:\\teme\\repository-pattern\\Albums\\Albums\\Albums.csproj"
             }
           }
         }
