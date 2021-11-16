@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Xunit;
+using Model;
+using Repository;
 
 namespace Albums.Tests
 {
@@ -11,7 +13,7 @@ namespace Albums.Tests
         private IAlbumRepository albumRepository;
         public AlbumTests()
         {
-           albumRepository = new AlbumRepository(@"..\..\..\albums.csv");
+           albumRepository = new AlbumRepositoryCSV(@"..\..\..\albums.csv");
         }
         [Fact]
         public void GetByIdReturnAnAlbumWithTheSameId()

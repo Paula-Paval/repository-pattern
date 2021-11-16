@@ -2,28 +2,16 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Model;
 
-namespace Albums
+namespace Repository
 {
-    public class AlbumRepository:IAlbumRepository
+    public abstract class AlbumRepository:IAlbumRepository
     {
-        private string path;
-        private List<Album> Albums;
+        protected string path;
+        protected List<Album> Albums;
 
-        public AlbumRepository(string path)
-        {
-            this.path = path;
-            Albums = new List<Album>();
-            Album album = new Album();
-            using (StreamReader sr = File.OpenText(path))
-            {
-                string s;
-                while ((s = sr.ReadLine()) != null)
-                {                   
-                    Albums.Add(album.Parse(s));
-                }
-            }
-        }
+       
         public void Delete(int albumId)
         {
 
@@ -82,21 +70,7 @@ namespace Albums
                 Console.WriteLine("Album already exists!");
         }
 
-        public void Save()
-        {
-            if (File.Exists(path))
-            {                               
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    foreach(var album in Albums)
-                    {
-                         sw.WriteLine($"{album.Id},{album.Musician},{album.Name},{album.Year},{album.Genre},{album.Owned},{album.RecordLabel}");
-                    }                   
-                }
-            }
-        }
-
-        public void Update(Album album)
+       public void Update(Album album)
         {
           
             if (AnOldAlbumAlreadyExists(album.Id))
@@ -149,10 +123,10 @@ namespace Albums
         {
             if (AnOldAlbumAlreadyExists(Id))
             {
-                var oldalbum = Albums.Where(x => x.Id == Id).First();
-                Albums.Remove(oldalbum);
-                oldalbum.Year = Year;
-                Albums.Add(oldalbum);
+                var oldAlbum = Albums.Where(x => x.Id == Id).First();
+                Albums.Remove(oldAlbum);
+                oldAlbum.Year = Year;
+                Albums.Add(oldAlbum);
             }
             else
             {
@@ -207,5 +181,7 @@ namespace Albums
         {
             return Albums.Where(x => x.Id == Id).Any();
         }
+
+        public abstract void Save();
     }
 }

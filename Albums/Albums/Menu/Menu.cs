@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Model;
+using Repository;
+
 
 namespace Albums
 {
@@ -68,12 +71,12 @@ namespace Albums
                     case "10":
                         Console.WriteLine("New album:(Please insert an album in this order and separated by commas:id,musician,name,year,genre,owned,record label)");
                         var newRecord = Console.ReadLine();
-                        albumRepository.Insert(album.Parse(newRecord));
+                        albumRepository.Insert(album.ParseCSV(newRecord));
                         break;
                     case "11":
                         Console.WriteLine("What album do you want to update");
                         var newRecord1 = Console.ReadLine();
-                        albumRepository.Update(album.Parse(newRecord1));
+                        albumRepository.Update(album.ParseCSV(newRecord1));
                         break;
                     case "12":
                         Console.WriteLine("What album do you want to update (by id)?");

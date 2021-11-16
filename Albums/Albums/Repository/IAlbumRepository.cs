@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Model;
 
-namespace Albums
+namespace Repository
 {
     public interface IAlbumRepository
     {
