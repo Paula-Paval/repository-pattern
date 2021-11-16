@@ -16,7 +16,12 @@ namespace Albums
         IEnumerable<Album> GetAll();
         void Insert(Album album);
         void Update(Album album);
-        public void UpdateById(int Id);
+        public void UpdateMusician(int Id, string Musician);
+        public void UpdateName(int Id, string Name);
+        public void UpdateYear(int Id, int Year);
+        public void UpdateGenre(int Id, string Genre);
+        public void UpdateOwned(int Id, bool Owned);
+        public void UpdateRecordLabel(int Id, string RecordLabel);
         void Delete(int albumId);
         void Save();
 

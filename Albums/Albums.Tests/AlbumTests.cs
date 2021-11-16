@@ -199,10 +199,9 @@ namespace Albums.Tests
             album.RecordLabel = "Columbia";
 
             albumRepository.Insert(album);
-            albumRepository.Save();
             var result = albumRepository.GetById(album.Id);
 
-            Assert.NotNull(album);
+            Assert.NotNull(result);
         }
         [Fact]
         public void Update_GetByIdRetunAnAlbumWithTheSameFields()
@@ -217,7 +216,6 @@ namespace Albums.Tests
             album.RecordLabel = "Columbia";
 
             albumRepository.Update(album);
-            albumRepository.Save();
             var result = albumRepository.GetById(album.Id);
 
             Assert.Equal(album.Id, result.Id);
@@ -229,27 +227,7 @@ namespace Albums.Tests
             Assert.Equal(album.RecordLabel, result.RecordLabel);
 
         }
-        [Fact]
-        public void UpdateById_GetByIdRetunAnAlbumWithTheSameFields()
-        {
-            var id = 50;
-            var genre = "latino";
-
-
-            var option = new StringReader(@$"Genre
-{genre}");
-            Console.SetIn(option);
-                       
-
-            albumRepository.UpdateById(id);
-            albumRepository.Save();
-            var result = albumRepository.GetById(id);
-
-
-            Assert.Equal(id, result.Id);
-            Assert.Equal(genre, result.Genre);
-
-        }
+       
 
     }
 }

@@ -7,12 +7,13 @@ namespace Albums
 {
     public class AlbumRepository:IAlbumRepository
     {
-        private string Path;
-        private List<Album>  Albums = new List<Album>();
+        private string path;
+        private List<Album> Albums;
 
         public AlbumRepository(string path)
         {
-            this.Path = path;
+            this.path = path;
+            Albums = new List<Album>();
             Album album = new Album();
             using (StreamReader sr = File.OpenText(path))
             {
@@ -20,7 +21,7 @@ namespace Albums
                 while ((s = sr.ReadLine()) != null)
                 {                   
                     Albums.Add(album.Parse(s));
-            }
+                }
             }
         }
         public void Delete(int albumId)
@@ -83,9 +84,9 @@ namespace Albums
 
         public void Save()
         {
-            if (File.Exists(Path))
+            if (File.Exists(path))
             {                               
-                using (StreamWriter sw = File.CreateText(Path))
+                using (StreamWriter sw = File.CreateText(path))
                 {
                     foreach(var album in Albums)
                     {
@@ -116,68 +117,92 @@ namespace Albums
             }
                                   
         }
-        public void UpdateById(int Id)
+        public void UpdateMusician(int Id, string Musician)
         {
-            
             if (AnOldAlbumAlreadyExists(Id))
             {
                 var oldalbum = Albums.Where(x => x.Id == Id).First();
                 Albums.Remove(oldalbum);
-                Console.WriteLine("What do you want to change? (Musician, Name, Year, Genre, Owned ,RecordLabel)");
-                var option = Console.ReadLine();
-                string optionForContinue = "Y";
-                do
-                {
-                    switch (option)
-                    {
-                        case "Musician":
-                            Console.WriteLine("New musician:");
-                            var newMusician = Console.ReadLine();
-                            oldalbum.Musician = newMusician;
-                            break;
-                        case "Name":
-                            Console.WriteLine("New Name:");
-                            var newName = Console.ReadLine();
-                            oldalbum.Musician = newName;
-                            break;
-                        case "Year":
-                            Console.WriteLine("New Year:");
-                            var newYear = Console.ReadLine();
-                            oldalbum.Year = int.Parse(newYear);
-                            break;
-                        case "Genre":
-                            Console.WriteLine("New genre:");
-                            var newGenre = Console.ReadLine();
-                            oldalbum.Genre = newGenre;
-                            break;
-                        case "Owned":
-                            Console.WriteLine("Is owned or not?");
-                            var isOwned = Console.ReadLine();
-                            oldalbum.Owned = bool.Parse(isOwned);
-                            break;
-                        case "RexordLabel":
-                            Console.WriteLine("New record label:");
-                            var newRecordLabel = Console.ReadLine();
-                            oldalbum.RecordLabel = newRecordLabel;
-                            break;
-
-                    }
-                    Albums.Add(oldalbum);
-                    Console.WriteLine("Do ypu want to change something else?(Y/N)");
-                    optionForContinue = Console.ReadLine();
-                    if (optionForContinue == "Y")
-                    {
-                        Console.WriteLine("What do you want to change? (Musician, Name, Year, Genre, Owned ,RecordLabel)");
-                        option = Console.ReadLine();
-                    }
-
-                } while (optionForContinue == "Y");                
+                oldalbum.Musician = Musician;
+                Albums.Add(oldalbum);
             }
+            else
             {
-                Console.WriteLine("Id not found!");
+                Console.WriteLine("Album not found!");
+            }
+        }
+        public void UpdateName(int Id, string Name)
+        {
+            if (AnOldAlbumAlreadyExists(Id))
+            {
+                var oldalbum = Albums.Where(x => x.Id == Id).First();
+                Albums.Remove(oldalbum);
+                oldalbum.Name = Name;
+                Albums.Add(oldalbum);
+            }
+            else
+            {
+                Console.WriteLine("Album not found!");
+            }
+        }
+        public void UpdateYear(int Id, int Year)
+        {
+            if (AnOldAlbumAlreadyExists(Id))
+            {
+                var oldalbum = Albums.Where(x => x.Id == Id).First();
+                Albums.Remove(oldalbum);
+                oldalbum.Year = Year;
+                Albums.Add(oldalbum);
+            }
+            else
+            {
+                Console.WriteLine("Album not found!");
             }
 
         }
+        public void UpdateGenre(int Id, string Genre)
+        {
+            if (AnOldAlbumAlreadyExists(Id))
+            {
+                var oldalbum = Albums.Where(x => x.Id == Id).First();
+                Albums.Remove(oldalbum);
+                oldalbum.Genre = Genre;
+                Albums.Add(oldalbum);
+            }
+            else
+            {
+                Console.WriteLine("Album not found!");
+            }
+        }
+        public void UpdateOwned(int Id, bool Owned)
+        {
+            if (AnOldAlbumAlreadyExists(Id))
+            {
+                var oldalbum = Albums.Where(x => x.Id == Id).First();
+                Albums.Remove(oldalbum);
+                oldalbum.Owned = Owned;
+                Albums.Add(oldalbum);
+            }
+            else
+            {
+                Console.WriteLine("Album not found!");
+            }
+        }
+        public void UpdateRecordLabel(int Id, string RecordLabel)
+        {
+            if (AnOldAlbumAlreadyExists(Id))
+            {
+                var oldalbum = Albums.Where(x => x.Id == Id).First();
+                Albums.Remove(oldalbum);
+                oldalbum.RecordLabel = RecordLabel;
+                Albums.Add(oldalbum);
+            }
+            else
+            {
+                Console.WriteLine("Album not found!");
+            }
+        }
+
         private bool AnOldAlbumAlreadyExists(int Id)
         {
             return Albums.Where(x => x.Id == Id).Any();
