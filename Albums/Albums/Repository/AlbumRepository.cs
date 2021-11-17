@@ -91,41 +91,41 @@ namespace Repository
             }
                                   
         }
-        public void UpdateMusician(int Id, string Musician)
+        public void UpdateMusician(int id, string musician)
         {
-            if (AnOldAlbumAlreadyExists(Id))
+            if (AnOldAlbumAlreadyExists(id))
             {
-                var oldalbum = Albums.Where(x => x.Id == Id).First();
-                Albums.Remove(oldalbum);
-                oldalbum.Musician = Musician;
-                Albums.Add(oldalbum);
-            }
-            else
-            {
-                Console.WriteLine("Album not found!");
-            }
-        }
-        public void UpdateName(int Id, string Name)
-        {
-            if (AnOldAlbumAlreadyExists(Id))
-            {
-                var oldalbum = Albums.Where(x => x.Id == Id).First();
-                Albums.Remove(oldalbum);
-                oldalbum.Name = Name;
-                Albums.Add(oldalbum);
-            }
-            else
-            {
-                Console.WriteLine("Album not found!");
-            }
-        }
-        public void UpdateYear(int Id, int Year)
-        {
-            if (AnOldAlbumAlreadyExists(Id))
-            {
-                var oldAlbum = Albums.Where(x => x.Id == Id).First();
+                var oldAlbum = Albums.Where(x => x.Id == id).First();
                 Albums.Remove(oldAlbum);
-                oldAlbum.Year = Year;
+                oldAlbum.Musician = musician;
+                Albums.Add(oldAlbum);
+            }
+            else
+            {
+                Console.WriteLine("Album not found!");
+            }
+        }
+        public void UpdateName(int id, string name)
+        {
+            if (AnOldAlbumAlreadyExists(id))
+            {
+                var oldAlbum = Albums.Where(x => x.Id == id).First();
+                Albums.Remove(oldAlbum);
+                oldAlbum.Name = name;
+                Albums.Add(oldAlbum);
+            }
+            else
+            {
+                Console.WriteLine("Album not found!");
+            }
+        }
+        public void UpdateYear(int id, int year)
+        {
+            if (AnOldAlbumAlreadyExists(id))
+            {
+                var oldAlbum = Albums.Where(x => x.Id == id).First();
+                Albums.Remove(oldAlbum);
+                oldAlbum.Year = year;
                 Albums.Add(oldAlbum);
             }
             else
@@ -134,42 +134,42 @@ namespace Repository
             }
 
         }
-        public void UpdateGenre(int Id, string Genre)
+        public void UpdateGenre(int id, string genre)
         {
-            if (AnOldAlbumAlreadyExists(Id))
+            if (AnOldAlbumAlreadyExists(id))
             {
-                var oldalbum = Albums.Where(x => x.Id == Id).First();
-                Albums.Remove(oldalbum);
-                oldalbum.Genre = Genre;
-                Albums.Add(oldalbum);
+                var oldAlbum = Albums.Where(x => x.Id == id).First();
+                Albums.Remove(oldAlbum);
+                oldAlbum.Genre = genre;
+                Albums.Add(oldAlbum);
             }
             else
             {
                 Console.WriteLine("Album not found!");
             }
         }
-        public void UpdateOwned(int Id, bool Owned)
+        public void UpdateOwned(int id, bool owned)
         {
-            if (AnOldAlbumAlreadyExists(Id))
+            if (AnOldAlbumAlreadyExists(id))
             {
-                var oldalbum = Albums.Where(x => x.Id == Id).First();
-                Albums.Remove(oldalbum);
-                oldalbum.Owned = Owned;
-                Albums.Add(oldalbum);
+                var oldAlbum = Albums.Where(x => x.Id == id).First();
+                Albums.Remove(oldAlbum);
+                oldAlbum.Owned = owned;
+                Albums.Add(oldAlbum);
             }
             else
             {
                 Console.WriteLine("Album not found!");
             }
         }
-        public void UpdateRecordLabel(int Id, string RecordLabel)
+        public void UpdateRecordLabel(int id, string recordLabel)
         {
-            if (AnOldAlbumAlreadyExists(Id))
+            if (AnOldAlbumAlreadyExists(id))
             {
-                var oldalbum = Albums.Where(x => x.Id == Id).First();
-                Albums.Remove(oldalbum);
-                oldalbum.RecordLabel = RecordLabel;
-                Albums.Add(oldalbum);
+                var oldAlbum = Albums.Where(x => x.Id == id).First();
+                Albums.Remove(oldAlbum);
+                oldAlbum.RecordLabel = recordLabel;
+                Albums.Add(oldAlbum);
             }
             else
             {
@@ -177,9 +177,9 @@ namespace Repository
             }
         }
 
-        private bool AnOldAlbumAlreadyExists(int Id)
+        private bool AnOldAlbumAlreadyExists(int id)
         {
-            return Albums.Where(x => x.Id == Id).Any();
+            return Albums.Where(x => x.Id == id).Any();
         }
 
         public abstract void Save();

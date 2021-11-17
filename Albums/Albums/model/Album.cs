@@ -45,8 +45,8 @@ namespace Model
         public List<Album> ParseXML(string fileContent)
         {
             List<Album> albums = new List<Album>();
-            XElement albumroot = XElement.Parse(fileContent);
-            List<XElement> listOfAlbums = albumroot.Elements("album").ToList();
+            XElement albumRoot = XElement.Parse(fileContent);
+            List<XElement> listOfAlbums = albumRoot.Elements("album").ToList();
 
             foreach (var album in listOfAlbums)
             {

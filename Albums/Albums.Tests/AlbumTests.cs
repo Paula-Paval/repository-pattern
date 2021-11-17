@@ -13,7 +13,7 @@ namespace Albums.Tests
         private IAlbumRepository albumRepository;
         public AlbumTests()
         {
-           albumRepository = new AlbumRepositoryCSV(@"..\..\..\albums.csv");
+           albumRepository = new AlbumRepositoryCSV(@"..\..\..\data\albums.csv");
         }
         [Fact]
         public void GetByIdReturnAnAlbumWithTheSameId()
@@ -144,7 +144,7 @@ namespace Albums.Tests
             }
         }
         [Fact]
-        public void GetByRecordLabelReturnAListWithAlbumsWithTheSSameRecordLabel()
+        public void GetByRecordLabelReturnAListWithAlbumsWithTheSameRecordLabel()
         {
             var recordLabel = "Merge";
 
@@ -182,7 +182,6 @@ namespace Albums.Tests
             var id = 30;
 
             albumRepository.Delete(id);
-            albumRepository.Save();
             var album = albumRepository.GetById(id);
 
             Assert.Null(album);
@@ -209,7 +208,7 @@ namespace Albums.Tests
         public void Update_GetByIdRetunAnAlbumWithTheSameFields()
         {
             Album album = new Album();
-            album.Id = 60;
+            album.Id = 30;
             album.Musician = "Harry Style";
             album.Name = "Fine Line";
             album.Year = 2019;
@@ -229,7 +228,96 @@ namespace Albums.Tests
             Assert.Equal(album.RecordLabel, result.RecordLabel);
 
         }
-       
+        [Fact]
+        public void UpdateMusician_GetByIdReturnAnAlbumWithTheSameMusician()
+        {
+            int Id = 30;
+            string musician = "Harry";
+
+            albumRepository.UpdateMusician(30, musician);
+            var result = albumRepository.GetById(Id);
+
+            Assert.Equal(Id, result.Id);
+            Assert.Equal(musician, result.Musician);
+           
+        }
+
+        [Fact]
+        public void UpdateName_GetByIdReturnAnAlbumWithTheSameName()
+        {
+            int Id = 30;
+            string name= "Sign of the Time";
+
+            albumRepository.UpdateName(Id, name);
+            var result = albumRepository.GetById(Id);
+
+            Assert.Equal(Id, result.Id);
+            Assert.Equal(name, result.Name);
+
+        }
+
+        [Fact]
+        public void UpdateYear_GetByIdReturnAnAlbumWithTheSameYear()
+        {
+            int Id = 30;
+            int year = 2017;
+
+            albumRepository.UpdateYear(Id, year);
+            var result = albumRepository.GetById(Id);
+
+            Assert.Equal(Id, result.Id);
+            Assert.Equal(year, result.Year);
+
+        }
+
+        [Fact]
+        public void UpdateGenre_GetByIdReturnAnAlbumWithTheSameGenre()
+        {
+            int Id = 30;
+            string genre = "k-pop";
+
+            albumRepository.UpdateGenre(Id, genre);
+            var result = albumRepository.GetById(Id);
+
+            Assert.Equal(Id, result.Id);
+            Assert.Equal(genre, result.Genre);
+
+        }
+
+        [Fact]
+        public void UpdateOwned_GetByIdReturnAnAlbumWithTheSameOwned()
+        {
+            int Id = 30;
+            bool owned = true;
+
+            albumRepository.UpdateOwned(Id, owned);
+            var result = albumRepository.GetById(Id);
+
+            Assert.Equal(Id, result.Id);
+            Assert.Equal(owned, result.Owned);
+
+        }
+
+
+        [Fact]
+        public void UpdateRecordLabel_GetByIdReturnAnAlbumWithTheRecoordLabel()
+        {
+            int Id = 30;
+            string recordLabel = "Columbia";
+
+            albumRepository.UpdateRecordLabel(Id, recordLabel);
+            var result = albumRepository.GetById(Id);
+
+            Assert.Equal(Id, result.Id);
+            Assert.Equal(recordLabel, result.RecordLabel);
+
+        }
+
+
+
+
+
+
 
     }
 }

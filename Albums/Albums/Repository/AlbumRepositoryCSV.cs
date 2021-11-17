@@ -26,9 +26,11 @@ namespace Repository
         }
         public override void Save()
         {
-            if (File.Exists(path))
+            FileInfo fileInfo = new FileInfo(base.path);
+            string newPath = fileInfo.DirectoryName + "\\result.csv";
+            if (File.Exists(newPath))
             {
-                using (StreamWriter sw = File.CreateText(path))
+                using (StreamWriter sw = File.CreateText(newPath))
                 {
                     foreach (var album in base.Albums)
                     {

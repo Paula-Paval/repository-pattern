@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using Model;
 
 namespace Repository
 {
-    class AlbumRepositoryXML:AlbumRepository
+    public class AlbumRepositoryXML:AlbumRepository
     {
       
         public AlbumRepositoryXML(string path)
@@ -18,10 +19,12 @@ namespace Repository
 
         public override void Save()
         {
+            FileInfo fileInfo = new FileInfo(base.path);
+            string newPath = fileInfo.DirectoryName + "\\result.xml";
             XMLList albums = new XMLList();
             albums.albums = base.Albums;
             Album album = new Album();
-            album.Serialize(@"..\..\..\data\result.xml", albums);
+            album.Serialize(newPath, albums);
         }
     }
 }

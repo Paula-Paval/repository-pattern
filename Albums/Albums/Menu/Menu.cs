@@ -55,8 +55,8 @@ namespace Albums
                         break;
                     case "7":
                         Console.WriteLine("Choose a record label:");
-                        var recordlabel = Console.ReadLine();
-                        PrintElements(albumRepository.GetByRecordLabel(recordlabel));
+                        var recordLabel = Console.ReadLine();
+                        PrintElements(albumRepository.GetByRecordLabel(recordLabel));
                         break;
                     case "8":
                         Console.WriteLine("All albums:");

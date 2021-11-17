@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XMLList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <albums>
+    <album>
+      <id>60</id>
+      <musician>Harry Style</musician>
+      <name>Fine Line</name>
+      <year>2019</year>
+      <genre>pop</genre>
+      <owned>false</owned>
+      <recordlabel>Columbia</recordlabel>
+    </album>
+    <album>
+      <id>10</id>
+      <musician>Arcade Fire</musician>
+      <name>Funeral</name>
+      <year>2004</year>
+      <genre>rock</genre>
+      <owned>false</owned>
+      <recordlabel>Merge</recordlabel>
+    </album>
+  </albums>
+</XMLList>
