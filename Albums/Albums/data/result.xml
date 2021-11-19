@@ -19,5 +19,14 @@
       <owned>false</owned>
       <recordlabel>Merge</recordlabel>
     </album>
+    <album>
+      <id>41</id>
+      <musician>Various Artists</musician>
+      <name>The Indestructible Beat of Soweto</name>
+      <year>1985</year>
+      <genre>pop</genre>
+      <owned>true</owned>
+      <recordlabel>Earthworks</recordlabel>
+    </album>
   </albums>
 </XMLList>

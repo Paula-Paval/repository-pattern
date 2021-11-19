@@ -44,9 +44,9 @@ namespace Model
         }
         public List<Album> ParseXML(string fileContent)
         {
-            List<Album> albums = new List<Album>();
-            XElement albumRoot = XElement.Parse(fileContent);
-            List<XElement> listOfAlbums = albumRoot.Elements("album").ToList();
+            var albums = new List<Album>();
+            var albumRoot = XElement.Parse(fileContent);
+            var listOfAlbums = albumRoot.Elements("album").ToList();
 
             foreach (var album in listOfAlbums)
             {
@@ -64,8 +64,8 @@ namespace Model
         }
         public void Serialize(string path,  XMLList xMLList)
         {
-            XmlSerializer x = new XmlSerializer(typeof(XMLList));
-            x.Serialize(new StreamWriter(path), xMLList);
+            var xmlSerializer= new XmlSerializer(typeof(XMLList));
+            xmlSerializer.Serialize(new StreamWriter(path), xMLList);
         }
 
 

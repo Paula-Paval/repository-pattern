@@ -7,16 +7,16 @@ using Repository;
 
 namespace Albums.Tests
 {
-    public class AlbumTests
+    public class AlbumRepositoryTests
     {
 
         private IAlbumRepository albumRepository;
-        public AlbumTests()
+        public AlbumRepositoryTests()
         {
-           albumRepository = new AlbumRepositoryCSV(@"..\..\..\data\albums.csv");
+           albumRepository = new AlbumRepositoryCSV(@"..\..\..\Data\albums.csv");
         }
         [Fact]
-        public void GetByIdReturnAnAlbumWithTheSameId()
+        public void GetById_TakeAnId_ReturnAnAlbumWithTheSameId()
         {
             var albumId = 10;
 
@@ -26,7 +26,7 @@ namespace Albums.Tests
             Assert.Equal(albumId, album.Id);
         }
         [Fact]
-        public void GetByIdReturNull()
+        public void GetById_TakeAnId_ReturNull()
         {
             var albumId = 11;
 
@@ -36,7 +36,7 @@ namespace Albums.Tests
         }
 
         [Fact]
-        public void GetByMusicianReturnAListWithAlbumsWithTheSameMusician()
+        public void GetByMusician_TakeAMusician_ReturnAListWithAlbumsWithTheSameMusician()
         {
             var musician = "Sakira";
 
@@ -50,7 +50,7 @@ namespace Albums.Tests
         }
 
         [Fact]
-        public void GetByMusicianReturnAnEmtyList()
+        public void GetByMusician_TakeAMusician_ReturnAnEmtyList()
         {
             var musician = "Eminem";
 
@@ -60,7 +60,7 @@ namespace Albums.Tests
            
         }
         [Fact]
-        public void GetByNameReturnAListWithAlbumsWithTheSameName()
+        public void GetByName_TakeAName_ReturnAListWithAlbumsWithTheSameName()
         {
             var name = "Funeral";
 
@@ -74,7 +74,7 @@ namespace Albums.Tests
         }
 
         [Fact]
-        public void GetByNameReturnAnEmtyList()
+        public void GetByName_TakeAName_ReturnAnEmtyList()
         {
             var name = "FuneraL";
 
@@ -83,7 +83,7 @@ namespace Albums.Tests
             Assert.Empty(albums);
         }
         [Fact]
-        public void GetByYearReturnAListWithAlbumsWithTheSameYear()
+        public void GetByYear_TakeAYear_ReturnAListWithAlbumsWithTheSameYear()
         {
             var year = 2004;
 
@@ -97,7 +97,7 @@ namespace Albums.Tests
         }
 
         [Fact]
-        public void GetByYearReturnAnEmtyList()
+        public void GetByYear_TakeAYear_ReturnAnEmtyList()
         {
             var year = 2020;
 
@@ -106,7 +106,7 @@ namespace Albums.Tests
             Assert.Empty(albums);           
         }
         [Fact]
-        public void GetByGenreReturnAListWithAlbumsWithTheSameGenre()
+        public void GetByGenre_TakeAGenre_ReturnAListWithAlbumsWithTheSameGenre()
         {
             var genre = "pop";
 
@@ -120,7 +120,7 @@ namespace Albums.Tests
         }
 
         [Fact]
-        public void GetByGenreReturnAnEmtyList()
+        public void GetByGenre_TakeAGenre_ReturnAnEmtyList()
         {
             var genre = "k-pop";
 
@@ -131,7 +131,7 @@ namespace Albums.Tests
         }
         
           [Fact]
-        public void GetByOwnedReturnAListWithAlbumsWithTheSameOwnedState()
+        public void GetByOwned_TakeAOwnedState_ReturnAListWithAlbumsWithTheSameOwnedState()
         {
             var owned = true;
 
@@ -144,7 +144,7 @@ namespace Albums.Tests
             }
         }
         [Fact]
-        public void GetByRecordLabelReturnAListWithAlbumsWithTheSameRecordLabel()
+        public void GetByRecordLabel_TakeARecordLabel_ReturnAListWithAlbumsWithTheSameRecordLabel()
         {
             var recordLabel = "Merge";
 
@@ -158,7 +158,7 @@ namespace Albums.Tests
         }
 
         [Fact]
-        public void GetByRecordLabelReturnAnEmtyList()
+        public void GetByRecordLabel_TakeARecordLabel_ReturnAnEmtyList()
         {
             var recordLabel = "MergE";
 
@@ -168,7 +168,7 @@ namespace Albums.Tests
 
         }
         [Fact]
-        public void GetAllReturnAnNotEmtyList()
+        public void GetAll_ReturnAnNotEmtyList()
         {
 
             IEnumerable<Album> albums = albumRepository.GetAll();
@@ -177,7 +177,7 @@ namespace Albums.Tests
 
         }
         [Fact]
-        public void DeleteBy_GetByIdReturnNull()
+        public void DeleteBy_TakeAnId_GetByIdReturnNull()
         {
             var id = 30;
 
@@ -188,7 +188,7 @@ namespace Albums.Tests
 
         }
         [Fact]
-        public void Insert_GetByIdReturnNotNull()
+        public void Insert_TakeAnAlbum_GetByIdReturnNotNull()
         {
             Album album = new Album();
             album.Id = 60;
@@ -205,7 +205,7 @@ namespace Albums.Tests
             Assert.NotNull(result);
         }
         [Fact]
-        public void Update_GetByIdRetunAnAlbumWithTheSameFields()
+        public void Update_TakeAnAlbum_GetByIdRetunAnAlbumWithTheSameFields()
         {
             Album album = new Album();
             album.Id = 30;
@@ -229,7 +229,7 @@ namespace Albums.Tests
 
         }
         [Fact]
-        public void UpdateMusician_GetByIdReturnAnAlbumWithTheSameMusician()
+        public void UpdateMusician_TakeAnIdAndAMusician_GetByIdReturnAnAlbumWithTheSameMusician()
         {
             int Id = 30;
             string musician = "Harry";
@@ -243,7 +243,7 @@ namespace Albums.Tests
         }
 
         [Fact]
-        public void UpdateName_GetByIdReturnAnAlbumWithTheSameName()
+        public void UpdateName_TakeAnIdAndName_GetByIdReturnAnAlbumWithTheSameName()
         {
             int Id = 30;
             string name= "Sign of the Time";
@@ -257,7 +257,7 @@ namespace Albums.Tests
         }
 
         [Fact]
-        public void UpdateYear_GetByIdReturnAnAlbumWithTheSameYear()
+        public void UpdateYear_TakeAnIdAndAYear_GetByIdReturnAnAlbumWithTheSameYear()
         {
             int Id = 30;
             int year = 2017;
@@ -271,7 +271,7 @@ namespace Albums.Tests
         }
 
         [Fact]
-        public void UpdateGenre_GetByIdReturnAnAlbumWithTheSameGenre()
+        public void UpdateGenre_TakeAnIdAndAGenre_GetByIdReturnAnAlbumWithTheSameGenre()
         {
             int Id = 30;
             string genre = "k-pop";
@@ -285,7 +285,7 @@ namespace Albums.Tests
         }
 
         [Fact]
-        public void UpdateOwned_GetByIdReturnAnAlbumWithTheSameOwned()
+        public void UpdateOwned_TakeAnIdAndAOwned_GetByIdReturnAnAlbumWithTheSameOwned()
         {
             int Id = 30;
             bool owned = true;
@@ -300,7 +300,7 @@ namespace Albums.Tests
 
 
         [Fact]
-        public void UpdateRecordLabel_GetByIdReturnAnAlbumWithTheRecoordLabel()
+        public void UpdateRecordLabel_TakeAnIdAndARecodLabel_GetByIdReturnAnAlbumWithTheRecoordLabel()
         {
             int Id = 30;
             string recordLabel = "Columbia";
@@ -312,11 +312,6 @@ namespace Albums.Tests
             Assert.Equal(recordLabel, result.RecordLabel);
 
         }
-
-
-
-
-
 
 
     }

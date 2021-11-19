@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using Model;
 using Repository;
@@ -11,11 +12,13 @@ namespace Albums
     {
         private IAlbumRepository albumRepository;
         private Album album;
+
         public Menu(IAlbumRepository albumRepository)
         {
             this.albumRepository = albumRepository;
             this.album=new Album();
         }
+
         public void choose(string option)
         {
             while (option != "exit")
@@ -100,12 +103,14 @@ namespace Albums
                 option = Console.ReadLine();
             }
         }
+
         private void UpdateMeniu(int Id)
         {
 
             Console.WriteLine("What do you want to change? (Musician, Name, Year, Genre, Owned ,RecordLabel)");
             var option = Console.ReadLine();
             string optionForContinue = "Y";
+
             do
             {
                 switch (option)
@@ -143,8 +148,10 @@ namespace Albums
                         break;
 
                 }
+
                 Console.WriteLine("Do you want to change something else?(Y/N)");
                 optionForContinue = Console.ReadLine();
+
                 if (optionForContinue == "Y")
                 {
                     Console.WriteLine("What do you want to change? (Musician, Name, Year, Genre, Owned ,RecordLabel)");
@@ -161,6 +168,7 @@ namespace Albums
                 Console.WriteLine(elem.ToString());
             }
         }
+        
     }
 }
 

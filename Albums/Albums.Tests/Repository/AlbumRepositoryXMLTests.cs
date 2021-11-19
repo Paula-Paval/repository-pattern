@@ -2,6 +2,7 @@
 using Repository;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,16 +17,16 @@ namespace Albums.Tests
         private IAlbumRepository albumRepository;
         public AlbumRepositoryXMLTests()
         {
-            albumRepository = new AlbumRepositoryXML(@"..\..\..\data\albums.xml");
+            albumRepository = new AlbumRepositoryXML(@"..\..\..\Data\albums.");
         }
         [Fact]
-        public void SaveShouldCommitTheContentOfTheListInAnResultFile()
+        public void Save_CommitTheContentOfTheListInAnResultFile()
         {
             
 
             albumRepository.Save();
 
-            string contentOfXML = System.IO.File.ReadAllText(@"..\..\..\data\result.xml");
+            string contentOfXML = System.IO.File.ReadAllText(@"E:\\teme\\repository - pattern\\Albums\\Albums.Tests\\Data\\result.xml");
             Assert.Equal(albumRepository.GetAll(), ParseXML(contentOfXML));
         }
         private List<Album> ParseXML(string fileContent)

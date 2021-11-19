@@ -17,16 +17,16 @@ namespace Repository
             Album album = new Album();
             using (StreamReader sr = File.OpenText(path))
             {
-                string s;
-                while ((s = sr.ReadLine()) != null)
+                string row;
+                while ((row = sr.ReadLine()) != null)
                 {
-                    Albums.Add(album.ParseCSV(s));
+                    Albums.Add(album.ParseCSV(row));
                 }
             }
         }
         public override void Save()
         {
-            FileInfo fileInfo = new FileInfo(base.path);
+            var  fileInfo = new FileInfo(base.path);
             string newPath = fileInfo.DirectoryName + "\\result.csv";
             if (File.Exists(newPath))
             {
